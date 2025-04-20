@@ -1,0 +1,112 @@
+﻿
+
+<h2 class="mb-4">Calcular la raíz de una función</h2>
+
+<form asp-controller="Home" asp-action="CalcFunctionRoot" method="post">
+    <div class="mb-3">
+        <label class="form-label">Función</label>
+        <input type="text" class="form-control" id="Function" name="Function" placeholder="Ej: x^3 - x - 2" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Tolerancia</label>
+        <input type="number" class="form-control" name="Tolerance" value="0.001" step="any" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Máximo de Iteraciones</label>
+        <input type="number" class="form-control" name="Iterations" value="100" required />
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3" id="leftLimitContainer">
+            <label class="form-label" id="leftLimitLabel">Límite Izquierdo</label>
+            <input type="number" class="form-control" name="LeftLimit" step="any" />
+        </div>
+
+        <div class="col-md-6 mb-3" id="rightLimitContainer">
+            <label class="form-label">Límite Derecho</label>
+            <input type="number" class="form-control" name="RightLimit" step="any" />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Método</label>
+        <select class="form-select" id="Method" name="Method" required>
+            <option value="bisection">Bisección</option>
+            <option value="newton_raphson">Newton Raphson</option>
+            <option value="false_position">Regla Falsa</option>
+            <option value="secant">Secante</option>
+        </select>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Calcular Raíz</button>
+</form>
+
+@if (ViewBag.Response != null)
+{
+    <div class="modal fade show" tabindex="-1" aria-modal="true" style="display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-4">
+                <div class="modal-header">
+                    <h5 class="modal-title">Resultado del Cálculo</h5>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Raíz:</strong> @ViewBag.Response.Result</p>
+                    <p><strong>Iteraciones:</strong> @ViewBag.Response.Iterations</p>
+                    <p><strong>Error Relativo:</strong> @ViewBag.Response.RelativeError</p>
+                    <p><strong>Mensaje:</strong> @ViewBag.Response.Message</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="@Url.Action("CalcFunctionRootView")" class="btn btn-secondary">Cerrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop fade show"></div>
+}
+
+@if (ViewBag.Error != null)
+{
+    <div class="modal fade show" tabindex="-1" aria-modal="true" style="display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-4">
+                <div class="modal-header">
+                    <h5 class="modal-title">Resultado del Cálculo</h5>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Mensaje de error:</strong> @ViewBag.Error</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="@Url.Action("CalcFunctionRootView")" class="btn btn-secondary">Cerrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop fade show"></div>
+}
+
+@section Scripts {
+    <script>
+        document.getElementById("Method").addEventListener("change", function () {
+            const method = this.value;
+            const rightLimit = document.getElementById("rightLimitContainer");
+            const leftLimit = document.getElementById("leftLimitContainer");
+            const leftLimitLabel = document.getElementById("leftLimitLabel");
+
+            if (method === "newton_raphson") {
+                rightLimit.style.display = "none";
+                leftLimit.classList = "mb-3";
+                leftLimitLabel.textContent = "Punto Inicial"
+            } else {
+                rightLimit.style.display = "block";
+                leftLimit.classList = "col-md-6 mb-3";
+                leftLimitLabel.textContent = "Límite Izquierdo"
+            }
+        });
+
+        document.getElementById("Metodo").dispatchEvent(new Event('change'));
+    </script>
+    }
