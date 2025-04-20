@@ -78,7 +78,7 @@ namespace AnalisisNumericoWebApp.Services
                     funcR = _calc.EvaluaFx(request.RightLimit);
                     funcL = _calc.EvaluaFx(request.LeftLimit);
 
-                    if (Dx <= request.Tolerance) 
+                    if (double.Abs(Dx) <= request.Tolerance) 
                        throw new ArgumentException("La derivada es menor a la tolerancia.");
                     
                     return request.LeftLimit - (funcL / Dx);
