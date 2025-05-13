@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<ICalcFunctionRoot, CalcFunctionRoot>();
+builder.Services.AddScoped<ISolveSystemOfEquations, SolveSystemOfEquations>();
 
 var app = builder.Build();
 
