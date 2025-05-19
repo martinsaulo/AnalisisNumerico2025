@@ -1,5 +1,7 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Newtonsoft.Json.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Runtime.Intrinsics.X86;
 
 namespace AnalisisNumericoWebApp.Entities
 {
@@ -23,6 +25,21 @@ namespace AnalisisNumericoWebApp.Entities
                 if(selector(_values[i]))
                     values.Add( transform(_values[i]) );
             }
+            return new DoubleVector(values);
+        }
+        public double Get(int index)
+        {
+            return _values[index];
+        }
+        public DoubleVector WithElement(int index, double element)
+        {
+            var values = new List<double>(_values);
+            values[index] = element;
+            return new DoubleVector(values);
+        }
+        public DoubleVector Copy()
+        {
+            var values = new List<double>(_values);
             return new DoubleVector(values);
         }
         public static DoubleVector operator + (DoubleVector left, DoubleVector right)
@@ -59,7 +76,15 @@ namespace AnalisisNumericoWebApp.Entities
         }
         public List<double> ToList()
         {
-            return _values;
+            return new List<double>(_values);
+        }
+        public static DoubleVector GetNullVector(int dimension)
+        {
+            if(dimension < 0)
+                throw new ArgumentException("La dimensión del vector no puede ser negativa.");
+
+            var values = Enumerable.Repeat<double>(0, dimension).ToList();
+            return new DoubleVector(values);
         }
     }
 }

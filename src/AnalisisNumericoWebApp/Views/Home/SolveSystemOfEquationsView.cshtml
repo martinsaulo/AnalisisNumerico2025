@@ -1,4 +1,97 @@
 ﻿@{
+    var variables = new List<string>(["x", "y", "z", "p", "q", "r", "s", "t", "u", "v"]);
+
+    if (ViewBag.PrevDimension == null)
+        ViewBag.PrevDimension = 3;
 }
 
-<h2 class="mb-4">Resolver sistema de ecuaciones</h2>1>
+
+<h2 class="mb-4">Resolver sistema de ecuaciones</h2>
+
+<div class="container">
+    <label for="matrixSize" class="form-label">Tamaño de la matriz (1 a 10)</label>
+
+    <div class="mb-3 no-padding container d-flex justify-content-between">
+        <input type="number" id="matrixSize" min="1" max="10" class="form-control" value="@ViewBag.PrevDimension" />
+
+        <select class="form-select w-25 custom-margin" id="Method" name="Method" required>
+            <option value="gauss_jordan">Gauss Jordan</option>
+            <option value="gauss_seidel">Gauss Seidel</option>
+        </select>
+    </div>
+
+    <div id="gaussSeidelContent" class="mt-4 container d-flex no-padding hide">
+        <div>
+            <label>Tolerancia</label>
+            <input id="toleranceInput" type="number" class="form-control" name="Tolerance" value="0.001" step="any" />
+        </div>
+
+        <div class="custom-margin">
+            <label>Iteraciones</label>
+            <input id="iterationsInput" type="number" class="form-control" name="Tolerance" value="100" step="1" />
+        </div>
+    </div>
+
+    <div id="matrixContainer" class="mt-4 container d-flex no-padding"></div>
+
+    <div class="container d-flex no-padding justify-content-end">
+        <form method="post" action="/Home/SolveSystemOfEquations" onsubmit="return onFormSubmit()">
+            <input type="hidden" id="hiddenData" name="request" />
+            <button type="submit" class="btn btn-primary">Resolver</button>
+        </form>
+    </div>
+
+</div>
+
+
+@if (ViewBag.Response != null)
+{
+    <div class="modal fade show" tabindex="-1" aria-modal="true" style="display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-4">
+                <div class="modal-header">
+                    <h5 class="modal-title">Resultado del Cálculo</h5>
+                </div>
+                <div class="modal-body">
+                    @for(int i = 0; i < ViewBag.Response.Count; i++)
+                    {
+                        <p><strong>@variables[i]:</strong> @ViewBag.Response[i]</p>
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button id="closeModalBtn" class="btn btn-secondary" onclick="closeModal()">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop fade show"></div>
+}
+
+
+@if (ViewBag.Error != null)
+{
+    <div id="modal" class="modal fade show" tabindex="-1" aria-modal="true" style="display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-4">
+                <div class="modal-header">
+                    <h5 class="modal-title">Resultado del Cálculo</h5>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Mensaje de error:</strong> @ViewBag.Error</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="closeModalBtn" class="btn btn-secondary" onclick="closeModal()">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalBg" class="modal-backdrop fade show"></div>
+
+}
+
+
+@section Scripts {
+    <script src="~/js/site.js"></script>
+}

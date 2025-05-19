@@ -1,12 +1,13 @@
 ﻿using AnalisisNumericoWebApp.Entities;
 using System.Collections;
+using System.ComponentModel.DataAnnotations;
 using System.Numerics;
 
 namespace AnalisisNumericoWebApp.Services
 {
     public class SolveSystemOfEquations : ISolveSystemOfEquations
     {
-        public Vector<double> SolveSystem(SystemOfEquationsRequestDTO request)
+        public List<double> SolveSystem(SystemOfEquationsRequestDTO request)
         {
             if(request.Dimension < 2)
                 throw new ArgumentException("La dimensión de la matriz es de mínimo 2x2.");
@@ -17,69 +18,73 @@ namespace AnalisisNumericoWebApp.Services
             if (request.Tolerance <= 0)
                 throw new ArgumentException("La tolerancia debe ser un número positivo.");
 
+            var matrix = from vector in request.Matrix select new DoubleVector(vector);
 
             if (request.Method == "gauss_jordan")
-                return GaussJordanMethod(request);
+                return GaussJordanMethod(request, matrix.ToList());
 
             if(request.Method == "gauss_seidel")
-                return GaussSeidelMethod(request);
+                return GaussSeidelMethod(request, matrix.ToList());
 
             throw new ArgumentException("Método incompatible.");
         }
-        public Vector<double> GaussJordanMethod(SystemOfEquationsRequestDTO request)
+        public List<double> GaussJordanMethod(SystemOfEquationsRequestDTO request, List<DoubleVector> matrix)
         {
 
             for (int rowDiag = 0; rowDiag < request.Dimension; rowDiag++)
             {
-                double diagonalCoefficient = request.Matrix[rowDiag][rowDiag];
+                double diagonalCoefficient = matrix[rowDiag].Get(rowDiag);
 
                 if(diagonalCoefficient == 0)
                 {
                     throw new DivideByZeroException("Hay un 0 en la diagonal principal.");
                 }
 
-                request.Matrix[rowDiag] /= diagonalCoefficient;
+                matrix[rowDiag] /= diagonalCoefficient;
 
                 for (int row = 0; row < request.Dimension; row++)
                 {
                     if(rowDiag != row)
                     {
-                        double rowCoefficient = request.Matrix[row][rowDiag];
-                        request.Matrix[row] -= rowCoefficient * request.Matrix[rowDiag];
+                        double rowCoefficient = matrix[row].Get(rowDiag);
+                        matrix[row] -= matrix[rowDiag] * rowCoefficient;
                     }
                 }
             }
 
-            var results = from row in request.Matrix select row[request.Dimension];
+            var results = from row in matrix select row.Get(request.Dimension);
 
-            return new Vector<double>(results.ToArray());
+            return results.ToList();
         }
-        public Vector<double> GaussSeidelMethod(SystemOfEquationsRequestDTO request)
+        public List<double> GaussSeidelMethod(SystemOfEquationsRequestDTO request, List<DoubleVector> matrix)
         {
             int count = 0;
             bool isSolution = false;
-            var resultVector = Vector<double>.Zero;
-            var prevVector = Vector<double>.Zero;
-            double error, result, coefficient;
+            var resultVector = DoubleVector.GetNullVector(request.Dimension);
+            var prevVector = DoubleVector.GetNullVector(request.Dimension);
+            double error, result, coefficient, difference;
             int sameResultCount;
 
             while (!isSolution)
             {
                 if (count > request.Iterations)
-                    throw new ArgumentException("Se llego al limite de iteraciones.");
-
+                {
+                    ValidationException ex = new ValidationException("Se llego al limite de iteraciones.");
+                    ex.Data.Add("LastValue", resultVector);
+                }
+                    
                 if (count > 0)
                     prevVector = resultVector;
                 
                 for(int row = 0; row < request.Dimension; row++)
                 {
-                    result = request.Matrix[row][request.Dimension];
-                    coefficient = request.Matrix[row][row];
+                    result = matrix[row].Get(request.Dimension);
+                    coefficient = matrix[row].Get(row);
 
                     for (int col = 0; col < request.Dimension; col++)
                     {
                         if(col != row)
-                            result -= request.Matrix[row][col] * resultVector[col];
+                            result -= matrix[row].Get(col) * resultVector.Get(col);
                     }
 
                     coefficient = result / coefficient;
@@ -91,8 +96,10 @@ namespace AnalisisNumericoWebApp.Services
 
                 for(int i = 0; i < request.Dimension; i++)
                 {
-                    error = double.Abs( (resultVector[i] - prevVector[i]) / resultVector[i]);
-                    if(error < request.Tolerance)
+                    difference = double.Abs(resultVector.Get(i) - prevVector.Get(i));
+                    error = (resultVector.Get(i) != 0) ? difference / resultVector.Get(i) : difference;
+
+                    if (error < request.Tolerance)
                         sameResultCount++;
                 }
 
@@ -100,7 +107,7 @@ namespace AnalisisNumericoWebApp.Services
                 count++;
             }
             
-            return resultVector;
+            return resultVector.ToList();
         }
     }
 }
