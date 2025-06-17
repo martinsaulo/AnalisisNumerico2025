@@ -32,6 +32,14 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYWxjRnVuY3Rpb25Sb290Vmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/marti/Proyectos/AnalisisNumerico2025/src/AnalisisNumericoWebApp/Views/Home/CurveFittingView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDdXJ2ZUZpdHRpbmdWaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marti/Proyectos/AnalisisNumerico2025/src/AnalisisNumericoWebApp/Views/Home/NumericalIntegrationView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOdW1lcmljYWxJbnRlZ3JhdGlvblZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/marti/Proyectos/AnalisisNumerico2025/src/AnalisisNumericoWebApp/Views/Home/SolveSystemOfEquationsView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTb2x2ZVN5c3RlbU9mRXF1YXRpb25zVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

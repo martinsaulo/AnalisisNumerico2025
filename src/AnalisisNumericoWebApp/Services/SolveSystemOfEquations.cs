@@ -21,17 +21,18 @@ namespace AnalisisNumericoWebApp.Services
             var matrix = from vector in request.Matrix select new DoubleVector(vector);
 
             if (request.Method == "gauss_jordan")
-                return GaussJordanMethod(request, matrix.ToList());
+                return GaussJordanMethod(request.Dimension, matrix.ToList());
 
             if(request.Method == "gauss_seidel")
                 return GaussSeidelMethod(request, matrix.ToList());
 
             throw new ArgumentException("Método incompatible.");
         }
-        public List<double> GaussJordanMethod(SystemOfEquationsRequestDTO request, List<DoubleVector> matrix)
+        
+        public static List<double> GaussJordanMethod(int dimension, List<DoubleVector> matrix)
         {
 
-            for (int rowDiag = 0; rowDiag < request.Dimension; rowDiag++)
+            for (int rowDiag = 0; rowDiag < dimension; rowDiag++)
             {
                 double diagonalCoefficient = matrix[rowDiag].Get(rowDiag);
 
@@ -42,7 +43,7 @@ namespace AnalisisNumericoWebApp.Services
 
                 matrix[rowDiag] /= diagonalCoefficient;
 
-                for (int row = 0; row < request.Dimension; row++)
+                for (int row = 0; row < dimension; row++)
                 {
                     if(rowDiag != row)
                     {
@@ -52,7 +53,7 @@ namespace AnalisisNumericoWebApp.Services
                 }
             }
 
-            var results = from row in matrix select row.Get(request.Dimension);
+            var results = from row in matrix select row.Get(dimension);
 
             return results.ToList();
         }
@@ -71,6 +72,7 @@ namespace AnalisisNumericoWebApp.Services
                 {
                     ValidationException ex = new ValidationException("Se llego al limite de iteraciones.");
                     ex.Data.Add("LastValue", resultVector);
+                    throw ex;
                 }
                     
                 if (count > 0)

@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|c:\\users\\marti\\proyectos\\analisisnumerico2025\\src\\analisisnumericowebapp\\views\\home\\curvefittingview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|solutionrelative:analisisnumericowebapp\\views\\home\\curvefittingview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|c:\\users\\marti\\proyectos\\analisisnumerico2025\\src\\analisisnumericowebapp\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|solutionrelative:analisisnumericowebapp\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|c:\\users\\marti\\proyectos\\analisisnumerico2025\\src\\analisisnumericowebapp\\views\\home\\solvesystemofequationsview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|solutionrelative:analisisnumericowebapp\\views\\home\\solvesystemofequationsview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|c:\\users\\marti\\proyectos\\analisisnumerico2025\\src\\analisisnumericowebapp\\services\\curvefitting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|solutionrelative:analisisnumericowebapp\\services\\curvefitting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|c:\\users\\marti\\proyectos\\analisisnumerico2025\\src\\analisisnumericowebapp\\services\\solvesystemofequations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|solutionrelative:analisisnumericowebapp\\services\\solvesystemofequations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|c:\\users\\marti\\proyectos\\analisisnumerico2025\\src\\analisisnumericowebapp\\entities\\curvefittingrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|solutionrelative:analisisnumericowebapp\\entities\\curvefittingrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|c:\\users\\marti\\proyectos\\analisisnumerico2025\\src\\analisisnumericowebapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|solutionrelative:analisisnumericowebapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|c:\\users\\marti\\proyectos\\analisisnumerico2025\\src\\analisisnumericowebapp\\views\\home\\calcfunctionrootview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|solutionrelative:analisisnumericowebapp\\views\\home\\calcfunctionrootview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|c:\\users\\marti\\proyectos\\analisisnumerico2025\\src\\analisisnumericowebapp\\entities\\systemofequationsrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|solutionrelative:analisisnumericowebapp\\entities\\systemofequationsrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|c:\\users\\marti\\proyectos\\analisisnumerico2025\\src\\analisisnumericowebapp\\views\\home\\solvesystemofequationsview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A3BDB481-1A7F-4AF8-9BEC-8B4066A1EC2D}|AnalisisNumericoWebApp\\AnalisisNumericoWebApp.csproj|solutionrelative:analisisnumericowebapp\\views\\home\\solvesystemofequationsview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,84 +34,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CalcFunctionRootView.cshtml",
-              "DocumentMoniker": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\AnalisisNumericoWebApp\\Views\\Home\\CalcFunctionRootView.cshtml",
-              "RelativeDocumentMoniker": "AnalisisNumericoWebApp\\Views\\Home\\CalcFunctionRootView.cshtml",
-              "ToolTip": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\AnalisisNumericoWebApp\\Views\\Home\\CalcFunctionRootView.cshtml",
-              "RelativeToolTip": "AnalisisNumericoWebApp\\Views\\Home\\CalcFunctionRootView.cshtml",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-17T23:27:27.864Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "site.js",
               "DocumentMoniker": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\AnalisisNumericoWebApp\\wwwroot\\js\\site.js",
               "RelativeDocumentMoniker": "AnalisisNumericoWebApp\\wwwroot\\js\\site.js",
               "ToolTip": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\AnalisisNumericoWebApp\\wwwroot\\js\\site.js",
               "RelativeToolTip": "AnalisisNumericoWebApp\\wwwroot\\js\\site.js",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAgwJAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADUAAAAAAAAAAAAAwDwAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-05-17T19:15:46.398Z",
+              "WhenOpened": "2025-06-16T03:11:12.974Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "SystemOfEquationsRequestDTO.cs",
-              "DocumentMoniker": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\AnalisisNumericoWebApp\\Entities\\SystemOfEquationsRequestDTO.cs",
-              "RelativeDocumentMoniker": "AnalisisNumericoWebApp\\Entities\\SystemOfEquationsRequestDTO.cs",
-              "ToolTip": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\AnalisisNumericoWebApp\\Entities\\SystemOfEquationsRequestDTO.cs",
-              "RelativeToolTip": "AnalisisNumericoWebApp\\Entities\\SystemOfEquationsRequestDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T05:02:52.484Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "SolveSystemOfEquationsView.cshtml",
               "DocumentMoniker": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\AnalisisNumericoWebApp\\Views\\Home\\SolveSystemOfEquationsView.cshtml",
               "RelativeDocumentMoniker": "AnalisisNumericoWebApp\\Views\\Home\\SolveSystemOfEquationsView.cshtml",
               "ToolTip": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\AnalisisNumericoWebApp\\Views\\Home\\SolveSystemOfEquationsView.cshtml",
               "RelativeToolTip": "AnalisisNumericoWebApp\\Views\\Home\\SolveSystemOfEquationsView.cshtml",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAAAF4AAAASAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAUwCsAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-17T02:12:55.873Z",
+              "WhenOpened": "2025-06-16T02:32:35.889Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "SolveSystemOfEquations.cs",
-              "DocumentMoniker": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\AnalisisNumericoWebApp\\Services\\SolveSystemOfEquations.cs",
-              "RelativeDocumentMoniker": "AnalisisNumericoWebApp\\Services\\SolveSystemOfEquations.cs",
-              "ToolTip": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\AnalisisNumericoWebApp\\Services\\SolveSystemOfEquations.cs",
-              "RelativeToolTip": "AnalisisNumericoWebApp\\Services\\SolveSystemOfEquations.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "CurveFitting.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\AnalisisNumericoWebApp\\Services\\CurveFitting.cs",
+              "RelativeDocumentMoniker": "AnalisisNumericoWebApp\\Services\\CurveFitting.cs",
+              "ToolTip": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\AnalisisNumericoWebApp\\Services\\CurveFitting.cs",
+              "RelativeToolTip": "AnalisisNumericoWebApp\\Services\\CurveFitting.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAAAoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T17:41:03.813Z",
+              "WhenOpened": "2025-06-16T02:18:40.892Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "CurveFittingRequestDTO.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\AnalisisNumericoWebApp\\Entities\\CurveFittingRequestDTO.cs",
+              "RelativeDocumentMoniker": "AnalisisNumericoWebApp\\Entities\\CurveFittingRequestDTO.cs",
+              "ToolTip": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\AnalisisNumericoWebApp\\Entities\\CurveFittingRequestDTO.cs",
+              "RelativeToolTip": "AnalisisNumericoWebApp\\Entities\\CurveFittingRequestDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T02:15:30.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\AnalisisNumericoWebApp\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "AnalisisNumericoWebApp\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\AnalisisNumericoWebApp\\Controllers\\HomeController.cs",
               "RelativeToolTip": "AnalisisNumericoWebApp\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAkwDoAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAD4AAAAAAAAAAADwv1AAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T02:09:37.785Z",
+              "WhenOpened": "2025-06-16T02:13:11.104Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CurveFittingView.cshtml",
+              "DocumentMoniker": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\AnalisisNumericoWebApp\\Views\\Home\\CurveFittingView.cshtml",
+              "RelativeDocumentMoniker": "AnalisisNumericoWebApp\\Views\\Home\\CurveFittingView.cshtml",
+              "ToolTip": "C:\\Users\\marti\\Proyectos\\AnalisisNumerico2025\\src\\AnalisisNumericoWebApp\\Views\\Home\\CurveFittingView.cshtml",
+              "RelativeToolTip": "AnalisisNumericoWebApp\\Views\\Home\\CurveFittingView.cshtml",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAIwIAAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-16T02:13:07.182Z",
               "EditorCaption": ""
             }
           ]

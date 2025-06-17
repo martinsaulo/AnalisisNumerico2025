@@ -1,0 +1,101 @@
+﻿@{
+}
+<h2 class="mb-4">Integración Numérica</h2>
+
+<form asp-action="NumericalIntegration" method="post">
+
+    <div class="mb-3">
+        <label class="form-label">Función</label>
+        <input type="text" class="form-control" id="Function" name="Function" placeholder="Ej: x^3 - x - 2" required />
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3" id="leftLimitContainer">
+            <label class="form-label" id="leftLimitLabel">Límite Izquierdo</label>
+            <input type="number" class="form-control" name="LeftLimit" step="any" required>
+        </div>
+
+        <div class="col-md-6 mb-3" id="rightLimitContainer">
+            <label class="form-label">Límite Derecho</label>
+            <input type="number" class="form-control" name="RightLimit" step="any" required />
+        </div>
+    </div>
+
+    <div class="mb-3" id="subintervals" hidden>
+        <label class="form-label">Cantidad de subintervalos</label>
+        <input type="number" class="form-control" name="Subintervals" id="subintervals-input" value="1" step="1" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Método</label>
+        <select class="form-select" name="Method" id="method" required>
+            <option value="simple-trapezoid">Trapecios Simple</option>
+            <option value="multiple-trapezoids">Trapecios Múltiple</option>
+            <option value="simpson-1/3-single">Simpson 1/3 Simple</option>
+            <option value="simpson-1/3-multiple">Simpson 1/3 Múltiple</option>
+            <option value="simpson-3/8">Simpson 3/8</option>
+            <option value="simpson-1/3-and-3/8">Simpson 1/3 Múltiple y 3/8 combinados</option>
+        </select>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Calcular</button>
+</form>
+
+@if (ViewBag.Response != null)
+{
+    <div class="modal fade show" tabindex="-1" aria-modal="true" style="display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-4">
+                <div class="modal-header">
+                    <h5 class="modal-title">Resultado del Cálculo</h5>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Area:</strong> @ViewBag.Response</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="@Url.Action("NumericalIntegrationView")" class="btn btn-secondary">Cerrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop fade show"></div>
+}
+
+@if (ViewBag.Error != null)
+{
+    <div class="modal fade show" tabindex="-1" aria-modal="true" style="display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-4">
+                <div class="modal-header">
+                    <h5 class="modal-title">Resultado del Cálculo</h5>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Mensaje de error:</strong> @ViewBag.Error</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="@Url.Action("NumericalIntegrationView")" class="btn btn-secondary">Cerrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop fade show"></div>
+}
+
+@section Scripts {
+    <script>
+        document.getElementById("method").addEventListener("change", function () {
+            const method = this.value;
+            const intervalsInput = document.getElementById("subintervals");
+            const multiMethods = ["multiple-trapezoids", "simpson-1/3-multiple", "simpson-1/3-and-3/8"]
+
+            if (multiMethods.includes(method)) {
+                intervalsInput.hidden = false
+            } else {
+                intervalsInput.hidden = true
+                document.getElementById("subintervals-input").value = 1
+            }
+        });
+    </script>
+    }

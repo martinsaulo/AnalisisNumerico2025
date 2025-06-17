@@ -1,0 +1,152 @@
+﻿@{
+}
+
+<h2 class="mb-4">Ajuste de Curvas</h2>
+
+<div class="mb-3">
+    <label class="form-label">Puntos (x,y):</label>
+
+    <div class="container d-flex no-padding">
+        <input type="number" class="form-control" id="x-input" value="0" step="any" required />
+        <input type="number" class="form-control custom-margin" id="y-input" value="0" step="any" required />
+        <button class="btn btn-primary custom-margin" onclick="addPoint()">Agregar</button>
+        <button class="btn btn-danger custom-margin" onclick="deletePoint()">Eliminar</button>
+    </div>
+</div>
+
+<div id="pointsContainer" class="mt-4 container d-flex no-padding"></div>
+
+<form asp-action="CurveFitting" method="post">
+
+    <div class="mb-3" id="grade" hidden>
+        <label class="form-label">Grado</label>
+        <input type="number" class="form-control" name="Grade" value="2" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Tolerancia</label>
+        <input type="number" class="form-control" name="Tolerance" value="0.001" step="any" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Método</label>
+        <select class="form-select" id="Method" name="Method" required>
+            <option value="linear_regression">Regresión Lineal</option>
+            <option value="polinomial_regression">Regresión Polinomial</option>
+        </select>
+    </div>
+
+    <input type="hidden" id="hiddenData" name="PointsJSON" />
+
+    <button class="btn btn-primary" type="submit">Calcular</button>
+</form>
+
+
+@if (ViewBag.Response != null)
+{
+    <div class="modal fade show" tabindex="-1" aria-modal="true" style="display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-4">
+                <div class="modal-header">
+                    <h5 class="modal-title">Resultado del Cálculo</h5>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Función:</strong> @ViewBag.Response.Function</p>
+                    <p><strong>Correlación:</strong> @ViewBag.Response.CorrelationCoefficient %</p>
+                    <p><strong>@( (ViewBag.Response.IsEffective) ? "El ajuste es aceptable" : "El ajuste no es aceptable")</strong></p>
+                </div>
+                <div class="modal-footer">
+                    <a href="@Url.Action("CurveFittingView")" class="btn btn-secondary">Cerrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop fade show"></div>
+}
+
+@if (ViewBag.Error != null)
+{
+    <div class="modal fade show" tabindex="-1" aria-modal="true" style="display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-4">
+                <div class="modal-header">
+                    <h5 class="modal-title">Resultado del Cálculo</h5>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Mensaje de error:</strong> @ViewBag.Error</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="@Url.Action("CurveFittingView")" class="btn btn-secondary">Cerrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop fade show"></div>
+}
+
+@section Scripts {
+    <script>
+
+        document.getElementById("Method").addEventListener("change", function () {
+            const method = this.value;
+            const gradeDiv = document.getElementById("grade");
+
+            if (method === "linear_regression") {
+                gradeDiv.value = 1
+                gradeDiv.hidden = true
+            } else {
+                gradeDiv.hidden = false
+            }
+        });
+
+        let points = []
+
+        function addPoint(){
+            const xInput = document.getElementById("x-input").value;
+            const yInput = document.getElementById("y-input").value;
+
+            points.push([xInput, yInput])
+            updatePoints()
+        }
+
+        function deletePoint(){
+            points.pop()
+            updatePoints()
+        }
+
+        function updatePoints(){
+            const pointsContainer = document.getElementById("pointsContainer")
+            const hiddenData = document.getElementById("hiddenData")
+            hiddenData.value = JSON.stringify(points)
+            pointsContainer.innerHTML = ""
+
+            if (points.length === 0){
+                return;
+            }
+
+            const table = document.createElement("table")
+            table.classList.add("table", "table-bordered")
+            table.classList.add("table-sm")
+
+            for (let i = 0; i < points.length; i++){
+                const row = document.createElement("tr")
+                const cellX = document.createElement("td")
+                const cellY = document.createElement("td")
+                const contentX = document.createElement("p")
+                const contentY = document.createElement("p")
+
+                contentX.innerText = points[i][0]
+                contentY.innerText = points[i][1]
+                cellX.appendChild(contentX)
+                cellY.appendChild(contentY)
+                row.appendChild(cellX)
+                row.appendChild(cellY)
+                table.appendChild(row)
+            }
+            console.log(table)
+            pointsContainer.appendChild(table)
+        }
+    </script>
+}

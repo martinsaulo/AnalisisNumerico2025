@@ -8,6 +8,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<ICalcFunctionRoot, CalcFunctionRoot>();
 builder.Services.AddScoped<ISolveSystemOfEquations, SolveSystemOfEquations>();
+builder.Services.AddScoped<ICurveFitting, CurveFitting>();
+builder.Services.AddScoped<INumericalIntegration, NumericalIntegration>();
 
 var app = builder.Build();
 
