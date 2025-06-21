@@ -94,11 +94,6 @@ namespace AnalisisNumericoWebApp.Services
         }
         private double SimpsonOneThirdAndThreeEights(double xi, double xd, int n)
         {
-            if (int.IsEvenInteger(n))
-            {
-                throw new ArgumentException("El número de intervalos debe ser impar para el metodo combinado de Simpson 1/3 y 3/8");
-            }
-
             double h = (xd - xi) / n;
             double evensSum = 0, oddsSum = 0, total = 0;
             double newXi;
